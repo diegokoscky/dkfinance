@@ -25,9 +25,7 @@ export default function Login() {
                         <IoFingerPrint/> DKFinance
                     </h1>
                 </div>
-                <div className={
-                    style.login__content
-                }>
+                <div>
                     <form>
                         <div className="form-group">
                             <label htmlFor="email">Email</label>
@@ -42,7 +40,7 @@ export default function Login() {
                                 <IconContext.Provider value={
                                     {
                                         color: "#9c71c3",
-                                        size: "1.2rem"
+                                        size: "1.3rem"
                                     }
                                 }>
                                     {

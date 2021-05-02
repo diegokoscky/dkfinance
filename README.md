@@ -5,4 +5,5 @@ Tecnologias:
 - [Next.js](https://nextjs.org/)
 - [Sass](https://sass-lang.com/)
 - [React Icons](https://react-icons.github.io/react-icons/)
+- [MongoDB](https://www.mongodb.com/)
 - [HG API's](https://hgbrasil.com/)
