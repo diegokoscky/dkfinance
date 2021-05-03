@@ -1,6 +1,12 @@
 import mongoose from 'mongoose'
 
-const LoginSchema = new mongoose.Schema({
+const CadastroSchema = new mongoose.Schema({
+
+    nome: {
+        type: String,
+        required: [true, 'Digite seu nome'],
+        maxlength: [50, 'Nome com no máximo com 50 caracteres']
+    },
     email: {
         type: String,
         required: [true, 'Digite o email'],
@@ -16,6 +22,6 @@ const LoginSchema = new mongoose.Schema({
     }
 })
 
-let Dataset = mongoose.models.Login || mongoose.model('Login', LoginSchema)
+let Dataset = mongoose.models.Cadastro || mongoose.model('Cadastro', CadastroSchema)
 
 export default Dataset;

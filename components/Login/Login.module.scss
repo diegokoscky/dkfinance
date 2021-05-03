@@ -2,6 +2,11 @@
     min-height: 100vh;
     width: 100%;
     background-image: linear-gradient(to bottom right, var(--primary-bg), #692be2);
+    padding: 2rem 0;
+
+    @media screen and (max-width: 630px) {
+        padding: 1rem 0;
+    }
 }
 
 .login__box {
@@ -12,7 +17,7 @@
     padding: 4rem;
 
     @media screen and (max-width: 630px) {
-        width: 95%;
+        width: 90%;
         padding: 2rem;
     }
 }
@@ -28,4 +33,8 @@
             font-size: 1.6rem;
         }
     }
+}
+
+.login__basic_link {
+    text-align: center;
 }

@@ -86,9 +86,8 @@ label {
     margin-bottom: .5rem;
 }
 
-.btn {
+.btn--default {
     padding: 15px 20px;
-    border-radius: 5px;
     border: 1px solid transparent;
     border-radius: var(--default-radius);
     cursor: pointer;
@@ -111,6 +110,17 @@ label {
 .btn--block {
     width: 100%;
     display: block;
+}
+
+.basic-link {
+    color: var(--secondary-color);
+
+    &:active,
+    &:hover,
+    &:focus {
+        color: var(--secondary-color);
+        text-decoration: underline;
+    }
 }
 
 .flex-center {
@@ -158,6 +168,7 @@ label {
 .form-check {
     display: block;
     padding-left: 3px;
+    margin-bottom: 1.5rem;
 
     label {
         margin-left: 10px;

@@ -1,19 +1,22 @@
 import mongoose from 'mongoose';
 
-const connection = {};
-
-async function dbConnect() {
-    if(connection.isConnected) {
+const dbConnect = () => {
+    if(mongoose.connections[0].readyState) {
+        console.log('Já conectado.')
         return;
     }
 
-    const db = await mongoose.connect(process.env.MONGO_URI, {
+    mongoose.connect(process.env.MONGO_URI, {
+        useCreateIndex: true,
+        useFindAndModify: false,
         useNewUrlParser: true,
-        useUnifiedTopology: true,
-    });
-
-    connection.isConnected = db.connections[0].readyState;
-    console.log(connection.isConnected);
+        useUnifiedTopology: true
+    }, err => {
+        if(err) {
+            throw err;
+        }
+        console.log('Conectado do MongoDB.')
+    })
 }
 
-export default dbConnect;
+export default dbConnect

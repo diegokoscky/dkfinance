@@ -1,15 +1,15 @@
 import Head from 'next/head'
-import LoginComponent from '../components/Login/index'
+import CadastroComponent from '../components/Cadastro/index'
 import Notify from '../components/Notify/index'
 
-export default function Login() {
+export default function Cadastro() {
     return (
         <>
             <Head>
-                <title>DKFinance - Login</title>
+                <title>DKFinance - Cadastro</title>
             </Head>
             <Notify />
-            <LoginComponent />
+            <CadastroComponent />
         </>
     )
 }
