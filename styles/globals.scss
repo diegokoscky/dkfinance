@@ -3,6 +3,7 @@
 :root {
     --primary-bg: #8a2be2;
     --secondary-bg: #fff;
+    --danger-bg: rgba(245,46,65,.85);;
     --primary-color: #fff;
     --secondary-color: #8a2be2;
     --text-color: #444444;
@@ -191,5 +192,39 @@ label {
         position: absolute;
         right: 15px;
         cursor: pointer;
+    }
+}
+
+.toast {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+
+    @media screen and (max-width: 370px) {
+        left: 15px;
+        right: 15px;
+    }
+
+    .toast-header,
+    .toast-body {
+        background-color: rgba(255,255,255,.6);
+    }
+}
+
+.bg-danger,
+.bg-success {
+    .toast-header {
+        color: var(--primary-color);
+
+        .close {
+            opacity: 1;
+        }
+
+        span {
+            color: var(--primary-color);
+        }
+    }
+    .toast-body {
+        background-color: rgba(255,255,255,1);
     }
 }
