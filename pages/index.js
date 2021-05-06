@@ -1,6 +1,5 @@
-import Head from 'next/head'
-import LoginComponent from '../components/Login/index'
-import Notify from '../components/Notify/index'
+import Head from "next/head";
+import LoginComponent from "../components/Login/index";
 
 export default function Login() {
     return (
@@ -8,8 +7,7 @@ export default function Login() {
             <Head>
                 <title>DKFinance - Login</title>
             </Head>
-            <Notify />
             <LoginComponent />
         </>
-    )
+    );
 }

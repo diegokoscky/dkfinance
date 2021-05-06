@@ -1,12 +1,11 @@
-import '../styles/globals.scss'
-import {DataProvider} from '../central/GlobalState'
+import "../styles/globals.scss";
 
-function MyApp({Component, pageProps}) {
+function MyApp({ Component, pageProps }) {
     return (
-        <DataProvider>
-            <Component {...pageProps}/>
-        </DataProvider>        
-    )
+        <>
+            <Component {...pageProps} />
+        </>
+    );
 }
 
-export default MyApp
+export default MyApp;

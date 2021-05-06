@@ -1,6 +1,5 @@
-import Head from 'next/head'
-import CadastroComponent from '../components/Cadastro/index'
-import Notify from '../components/Notify/index'
+import Head from "next/head";
+import CadastroComponent from "../components/Cadastro/index";
 
 export default function Cadastro() {
     return (
@@ -8,8 +7,7 @@ export default function Cadastro() {
             <Head>
                 <title>DKFinance - Cadastro</title>
             </Head>
-            <Notify />
             <CadastroComponent />
         </>
-    )
+    );
 }
