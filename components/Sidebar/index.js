@@ -7,9 +7,9 @@ import {
     IoCalendarOutline,
     IoFingerPrint,
     IoHomeOutline,
+    IoLogOutOutline,
 } from "react-icons/io5";
 import { HiOutlineMenu, HiOutlineMenuAlt3 } from "react-icons/hi";
-import { IconContext } from "react-icons/lib";
 
 export default function Sidebar() {
     return (
@@ -31,36 +31,43 @@ export default function Sidebar() {
                         <ul>
                             <li>
                                 <Link href="/dashboard">
-                                    <a>
+                                    <a className="flex-start">
                                         <IoHomeOutline /> Item 1
                                     </a>
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/dashboard">
-                                    <a href="">
+                                    <a className="flex-start">
                                         <IoAlbumsOutline /> Item 2
                                     </a>
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/dashboard">
-                                    <a href="">
+                                    <a className="flex-start">
                                         <IoBarcodeOutline /> Item 3
                                     </a>
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/dashboard">
-                                    <a href="">
+                                    <a className="flex-start">
                                         <IoCalendarOutline /> Item 4
                                     </a>
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/dashboard">
-                                    <a href="">
+                                    <a className="flex-start">
                                         <IoBuildOutline /> Item 5
+                                    </a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/">
+                                    <a className="flex-start">
+                                        <IoLogOutOutline /> Sair
                                     </a>
                                 </Link>
                             </li>

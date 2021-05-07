@@ -38,16 +38,28 @@
 }
 
 .sidebar__content {
-    padding: 1.5rem;
+    padding: 1rem 0;
 }
 
 .sidebar__inner {
     ul {
+        padding: 0 1rem;
+
         li {
+            border-radius: .3rem;
+            transition: var(--default-transition);
+
+            &:hover {
+                background: #f6f9fc;
+            }
+
             a {
                 color: var(--text-color);
-                display: block;
-                padding: .675rem 0;
+                padding: .875rem .5rem;
+
+                svg {
+                    margin-right: 1.2rem;
+                }
             }
         }
     }

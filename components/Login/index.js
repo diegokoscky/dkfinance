@@ -24,7 +24,12 @@ export default function Login() {
                     <form>
                         <div className="form-group">
                             <label htmlFor="email">Seu email</label>
-                            <input type="email" name="email" id="email" />
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                className="form-control"
+                            />
                         </div>
 
                         <div className="form-group">
@@ -34,6 +39,7 @@ export default function Login() {
                                     type={togglePassword ? "text" : "password"}
                                     name="senha"
                                     id="senha"
+                                    className="form-control"
                                 />
                                 <IconContext.Provider
                                     value={{
@@ -59,7 +65,7 @@ export default function Login() {
                         <div className="form-group">
                             <Link href="/dashboard">
                                 <a
-                                    className="btn--default btn--block btn--primary"
+                                    className="btn btn--block btn--primary"
                                     title="Entrar"
                                 >
                                     Entrar

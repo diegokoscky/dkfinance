@@ -23,12 +23,22 @@ export default function Cadastro() {
                     <form>
                         <div className="form-group">
                             <label htmlFor="nome">Seu nome</label>
-                            <input type="text" name="nome" id="nome" />
+                            <input
+                                type="text"
+                                name="nome"
+                                id="nome"
+                                className="form-control"
+                            />
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="email">Seu melhor email</label>
-                            <input type="email" name="email" id="email" />
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                className="form-control"
+                            />
                         </div>
 
                         <div className="form-group">
@@ -38,6 +48,7 @@ export default function Cadastro() {
                                     type={togglePassword ? "text" : "password"}
                                     name="senha"
                                     id="senha"
+                                    className="form-control"
                                 />
                                 <IconContext.Provider
                                     value={{
@@ -63,7 +74,7 @@ export default function Cadastro() {
                         <div className="form-group">
                             <Link href="/dashboard">
                                 <a
-                                    className="btn--default btn--block btn--primary"
+                                    className="btn btn--block btn--primary"
                                     title="Criar Conta"
                                 >
                                     Criar Conta
