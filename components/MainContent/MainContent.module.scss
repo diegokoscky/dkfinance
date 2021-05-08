@@ -1,4 +1,9 @@
 .main__content {
     margin-left: 250px;
     position: relative;
+    transition: var(--default-transition);
+
+    @media screen and (max-width: 1200px) {
+        margin-left: 0;
+    }
 }

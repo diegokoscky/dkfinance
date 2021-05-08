@@ -9,6 +9,11 @@
     overflow-y: auto;
     box-shadow: 0 0 2rem 0 rgb(136 152 170 / 15%);
     border-right: 1px solid rgba(0,0,0,.05);
+    transition: var(--default-transition);
+
+    @media screen and (max-width: 1200px) {
+        left: -250px;
+    }
 
     nav {
         height: 100%;
@@ -58,9 +63,16 @@
                 padding: .875rem .5rem;
 
                 svg {
-                    margin-right: 1.2rem;
+                    margin-right: 1rem;
+                    font-size: 1.1rem;
                 }
             }
         }
+    }
+}
+
+.sidebar__open {
+    @media screen and (max-width: 1200px) {
+        left: 0;
     }
 }
