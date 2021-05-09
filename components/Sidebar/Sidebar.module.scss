@@ -10,13 +10,19 @@
     box-shadow: 0 0 2rem 0 rgb(136 152 170 / 15%);
     border-right: 1px solid rgba(0,0,0,.05);
     transition: var(--default-transition);
+    z-index: 2;
+
+    nav {
+        height: 100%;
+    }
 
     @media screen and (max-width: 1200px) {
         left: -250px;
     }
 
-    nav {
-        height: 100%;
+    @media screen and (max-width: 400px) {
+        left: -200px;
+        max-width: 200px;
     }
 }
 
@@ -40,6 +46,10 @@
     svg {
         font-size: 1.3rem;
     }
+
+    @media screen and (max-width: 1200px) {
+        display: none;
+    }
 }
 
 .sidebar__content {
@@ -55,7 +65,7 @@
             transition: var(--default-transition);
 
             &:hover {
-                background: #f6f9fc;
+                background: var(--default-lista-hover);
             }
 
             a {
@@ -75,4 +85,18 @@
     @media screen and (max-width: 1200px) {
         left: 0;
     }
+}
+
+.sidebar__open_overlay {
+    content: '';
+    position: fixed;
+    background-color: rgba(0,0,0,.05);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    transition: var(--default-transition);
 }

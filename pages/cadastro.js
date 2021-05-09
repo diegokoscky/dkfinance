@@ -1,12 +1,10 @@
-import Head from "next/head";
+import HeadComponent from "../components/Head";
 import CadastroComponent from "../components/Cadastro/index";
 
 export default function Cadastro() {
     return (
         <>
-            <Head>
-                <title>DKFinance - Cadastro</title>
-            </Head>
+            <HeadComponent title="Cadastro" />
             <CadastroComponent />
         </>
     );

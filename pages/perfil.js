@@ -2,17 +2,17 @@ import HeadComponent from "../components/Head";
 import Sidebar from "../components/Sidebar";
 import MainContent from "../components/MainContent";
 import Navbar from "../components/Navbar";
-import DashboardComponent from "../components/Dashboard";
+import ProfileComponent from "../components/Profile";
 import Footer from "../components/Footer";
 
-export default function Dashboard() {
+export default function Profile() {
     return (
         <>
-            <HeadComponent title="Dashboard" />
+            <HeadComponent title="Perfil" />
             <Sidebar />
             <MainContent>
                 <Navbar />
-                <DashboardComponent />
+                <ProfileComponent />
                 <Footer />
             </MainContent>
         </>

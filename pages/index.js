@@ -1,12 +1,10 @@
-import Head from "next/head";
+import HeadComponent from "../components/Head";
 import LoginComponent from "../components/Login/index";
 
 export default function Login() {
     return (
         <>
-            <Head>
-                <title>DKFinance - Login</title>
-            </Head>
+            <HeadComponent title="Login" />
             <LoginComponent />
         </>
     );

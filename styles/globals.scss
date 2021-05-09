@@ -6,6 +6,7 @@
     --primary-color: rgba(255,255,255,.9);
     --secondary-color: #8a2be2;
     --text-color: #444444;
+    --default-lista-hover: #f6f9fc;
     --default-fontsize: .93rem;
     --default-radius: .4rem;
     --circle-radius: 2rem;
@@ -200,4 +201,16 @@ label {
 
 .circle-img {
     border-radius: 50%;
+}
+
+.show {
+    opacity: 1 !important;
+    display: block !important;
+    visibility: visible !important;
+}
+
+.hide {
+    opacity: 0 !important;
+    display: none !important;
+    visibility: hidden !important;
 }
