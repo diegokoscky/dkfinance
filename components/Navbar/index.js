@@ -11,6 +11,7 @@ import {
     IoBuildOutline,
     IoPersonOutline,
     IoNotificationsOffOutline,
+    IoCloseSharp,
 } from "react-icons/io5";
 import { CgMenuRightAlt } from "react-icons/cg";
 import style from "./Navbar.module.scss";
@@ -20,6 +21,12 @@ export default function Navbar() {
     const [sidebarToggle, setSidebarToggle] = useContext(AppContext);
     const toggle = () => {
         setSidebarToggle(!sidebarToggle);
+    };
+
+    // MOSTRA A BUSCA MOBILE
+    const [showSearch, setShowSearch] = useState(false);
+    const toggleSearch = () => {
+        setShowSearch(!showSearch);
     };
 
     // DROPDOWN NOTIFICAÇÕES
@@ -73,15 +80,20 @@ export default function Navbar() {
         <header>
             <nav className={style.navbar}>
                 <div className="container">
-                    <div className="flex-between">
+                    <div className={style.navbar__wrapper + ` flex-between`}>
                         <div className={style.navbar__logo}>
                             <Link href="/dashboard">
-                                <a>
-                                    <IoFingerPrint /> DKFinance
+                                <a className="flex-center">
+                                    <IoFingerPrint />
+                                    <span>DKFinance</span>
                                 </a>
                             </Link>
                         </div>
-                        <form>
+                        <form
+                            className={
+                                showSearch ? style.navbar__search_mobile : ""
+                            }
+                        >
                             <div
                                 className={
                                     style.navbar__search_container +
@@ -100,65 +112,75 @@ export default function Navbar() {
                                     type="text"
                                     name="search"
                                     placeholder="Buscar"
+                                    aria-label="Buscar"
                                     className={
                                         `form-control ` +
                                         style.navbar__search_input
                                     }
                                 />
+                                {showSearch ? (
+                                    <div
+                                        className={
+                                            style.navbar__close_search +
+                                            ` flex-center`
+                                        }
+                                        onClick={toggleSearch}
+                                        title="Fechar busca"
+                                        aria-label="Fechar busca"
+                                    >
+                                        <IoCloseSharp />
+                                    </div>
+                                ) : (
+                                    ""
+                                )}
                             </div>
                         </form>
                         <div className={style.navbar__links + ` flex-center`}>
                             <ul className="flex-center">
                                 <li className={style.navbar__sidebar_toggle}>
-                                    <Link href="#">
-                                        <a
-                                            className={
-                                                style.navbar__link_item +
-                                                ` flex-center`
-                                            }
-                                            title="Menu lateral"
-                                            aria-label="Menu lateral"
-                                            onClick={toggle}
-                                        >
-                                            {sidebarToggle ? (
-                                                <CgMenuRightAlt />
-                                            ) : (
-                                                <IoMenu />
-                                            )}
-                                        </a>
-                                    </Link>
+                                    <span
+                                        className={
+                                            style.navbar__link_item +
+                                            ` flex-center`
+                                        }
+                                        title="Menu lateral"
+                                        aria-label="Menu lateral"
+                                        onClick={toggle}
+                                    >
+                                        {sidebarToggle ? (
+                                            <CgMenuRightAlt />
+                                        ) : (
+                                            <IoMenu />
+                                        )}
+                                    </span>
                                 </li>
                                 <li
                                     className={style.navbar__search_toggle}
-                                    onClick={toggle}
+                                    onClick={toggleSearch}
                                 >
-                                    <Link href="#">
-                                        <a
-                                            className={
-                                                style.navbar__link_item +
-                                                ` flex-center`
-                                            }
-                                            title="Buscar"
-                                            aria-label="Buscar"
-                                        >
-                                            <IoSearchSharp />
-                                        </a>
-                                    </Link>
+                                    <span
+                                        className={
+                                            style.navbar__link_item +
+                                            ` flex-center`
+                                        }
+                                        title="Buscar"
+                                        aria-label="Buscar"
+                                    >
+                                        <IoSearchSharp />
+                                    </span>
                                 </li>
                                 <li>
-                                    <Link href="#">
-                                        <a
-                                            className={
-                                                style.navbar__link_item +
-                                                ` flex-center`
-                                            }
-                                            title="Notificações"
-                                            aria-label="Notificações"
-                                            onClick={toggleDropNotification}
-                                        >
-                                            <IoNotificationsSharp />
-                                        </a>
-                                    </Link>
+                                    <span
+                                        className={
+                                            style.navbar__link_item +
+                                            ` flex-center`
+                                        }
+                                        title="Notificações"
+                                        aria-label="Notificações"
+                                        onClick={toggleDropNotification}
+                                    >
+                                        <IoNotificationsSharp />
+                                    </span>
                                     <div
                                         ref={notificationNode}
                                         className={
@@ -188,24 +210,23 @@ export default function Navbar() {
                                 </li>
                             </ul>
                             <div className={style.navbar__profile}>
-                                <Link href="#">
-                                    <a
-                                        className="flex-center"
-                                        title="Meu perfil e configurações"
-                                        aria-label="Meu perfil e configurações"
-                                        onClick={toggleDropProfile}
-                                    >
-                                        <img
-                                            src="/images/profile-img.jpg"
-                                            alt="Imagem de Perfil"
-                                            className={
-                                                style.profile__img +
-                                                ` circle-img`
-                                            }
-                                        />
-                                        <span>Diego Koscky</span>
-                                    </a>
-                                </Link>
+                                <span
+                                    className="flex-center"
+                                    title="Meu perfil e configurações"
+                                    aria-label="Meu perfil e configurações"
+                                    onClick={toggleDropProfile}
+                                >
+                                    <img
+                                        src="/images/profile-img.jpg"
+                                        alt="Imagem de Perfil"
+                                        className={
+                                            style.profile__img + ` circle-img`
+                                        }
+                                    />
+                                    <span className={style.navbar__nome_perfil}>
+                                        Diego Koscky
+                                    </span>
+                                </span>
                                 <div
                                     ref={profileNode}
                                     className={
