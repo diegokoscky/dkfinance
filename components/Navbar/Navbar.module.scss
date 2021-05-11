@@ -1,7 +1,7 @@
 .navbar {
     padding: 1.2rem 0;
     background-color: var(--primary-bg);
-    border-bottom: 1px solid rgba(255,255,255,.3);
+    border-bottom: 1px solid rgba(255,255,255,.07);
     max-height: 80px;
 }
 
@@ -141,11 +141,12 @@
     opacity: 0;
     visibility: hidden;
     position: absolute;
+    z-index: 10;
     right: 0;
     background: #fff;
     min-width: 13rem;
     width: 100%;
-    box-shadow: 0 2px 10px rgb(0,0,0,.1);
+    box-shadow: 0 5px 15px rgb(0,0,0,.2);
     border-radius: var(--default-radius);
     animation: opacity-transition .25s ease forwards;      
 }

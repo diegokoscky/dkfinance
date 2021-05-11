@@ -7,10 +7,15 @@
     --secondary-color: #8a2be2;
     --text-color: #444444;
     --default-lista-hover: #f6f9fc;
+    --green: #25d493;
+    --red: #ec2e2e;
+    --yellow: #f3cd17;
+    --blue: #206ada;
     --default-fontsize: .93rem;
     --default-radius: .4rem;
     --circle-radius: 2rem;
     --default-transition: .3s all ease;
+    --default-boxshadow: 0 0 2rem 0 rgba(0,0,0, .05);
 }
 
 * {
@@ -19,6 +24,10 @@
     margin: 0;
     font: 100% 'Noto Sans JP', sans-serif;
     outline: none;
+}
+
+body {
+    background-color: #f8f9fe;
 }
 
 p,
@@ -30,7 +39,7 @@ select,
 textarea {
     font-size: var(--default-fontsize);
     color: var(--text-color);
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 h1,
@@ -38,6 +47,23 @@ h2,
 h3,
 h4 {
     color: var(--text-color);
+    line-height: 1.7;
+}
+
+h1 {
+    font-size: 1.2rem;
+}
+
+h2 {
+    font-size: 1.05rem;
+}
+
+h3 {
+    font-size: 1rem;
+}
+
+h4 {
+    font-size: .9rem;
 }
 
 ul,
@@ -88,6 +114,143 @@ label {
 .container {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.col, 
+.col-1, 
+.col-2, 
+.col-3, 
+.col-4, 
+.col-5, 
+.col-6, 
+.col-7, 
+.col-8, 
+.col-9, 
+.col-10, 
+.col-11, 
+.col-12 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .col-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .col-1 {
+        flex: 0 0 8.33333%;
+        max-width: 8.33333%;
+    }
+    
+    .col-2 {
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%;
+    }
+    
+    .col-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    
+    .col-4 {
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+    }
+    
+    .col-5 {
+        flex: 0 0 41.66667%;
+        max-width: 41.66667%;
+    }
+    
+    .col-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    
+    .col-7 {
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%;
+    }
+    
+    .col-8 {
+        flex: 0 0 66.66667%;
+        max-width: 66.66667%;
+    }
+    
+    .col-9 {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+    
+    .col-10 {
+        flex: 0 0 83.33333%;
+        max-width: 83.33333%;
+    }
+    
+    .col-11 {
+        flex: 0 0 91.66667%;
+        max-width: 91.66667%;
+    }
+    
+    .col-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+.main-content {
+    margin-top: -4.5rem;
+}
+
+.bg-blue {
+    background: var(--blue);
+}
+
+.text-blue {
+    color: var(--blue);
+}
+
+.bg-green {
+    background: var(--green);
+}
+
+.text-green {
+    color: var(--green);
+}
+
+.bg-red {
+    background: var(--red);
+}
+
+.text-red {
+    color: var(--red);
+}
+
+.bg-yellow {
+    background: var(--yellow);
+}
+
+.text-yellow {
+    color: var(--yellow);
 }
 
 .btn {

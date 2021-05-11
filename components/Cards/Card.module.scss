@@ -1,0 +1,25 @@
+.card {
+    background: var(--secondary-bg);
+    box-shadow: var(--default-boxshadow);
+    border-radius: var(--default-radius);
+    margin-bottom: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    transition: var(--default-transition);
+}
+
+.card__header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(0,0,0,.05);
+    
+    h2 {
+        font-weight: 600;
+    }
+}
+
+.card__body {
+    flex: 1 1 auto;
+    padding: 1.5rem;
+}
