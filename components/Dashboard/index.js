@@ -1,5 +1,6 @@
 import Card from "../Cards/Card";
 import CardStats from "../Cards/CardStats";
+import CardGraphDoughnut from "../Cards/CardGraphDoughnut";
 
 export default function DashboardComponent() {
     return (
@@ -10,7 +11,7 @@ export default function DashboardComponent() {
                         <div className="col-3">
                             <CardStats
                                 title="WEGE3"
-                                value="1.250,54"
+                                value={1250.43}
                                 image="/images/android-chrome-192x192.png"
                                 profit={68.65}
                             />
@@ -18,7 +19,7 @@ export default function DashboardComponent() {
                         <div className="col-3">
                             <CardStats
                                 title="ITUB4"
-                                value="978,20"
+                                value={978.2}
                                 image="/images/android-chrome-192x192.png"
                                 profit={49.76}
                             />
@@ -26,7 +27,7 @@ export default function DashboardComponent() {
                         <div className="col-3">
                             <CardStats
                                 title="LEVE3"
-                                value="638,28"
+                                value={638.28}
                                 image="/images/android-chrome-192x192.png"
                                 profit={42.12}
                             />
@@ -34,7 +35,7 @@ export default function DashboardComponent() {
                         <div className="col-3">
                             <CardStats
                                 title="FLRY3"
-                                value="490,94"
+                                value={490.94}
                                 image="/images/android-chrome-192x192.png"
                                 profit={-5.68}
                             />
@@ -42,13 +43,46 @@ export default function DashboardComponent() {
                     </div>
                     <div className="row">
                         <div className="col-4">
-                            <Card title="Carteira Ideal" />
+                            <CardGraphDoughnut
+                                title="Carteira Ideal"
+                                items={[
+                                    "WEGE3",
+                                    "ITUB4",
+                                    "LEVE3",
+                                    "FLRY3",
+                                    "VALE3",
+                                    "SQIA3",
+                                ]}
+                                values={[30, 20, 20, 15, 10, 5]}
+                            />
                         </div>
                         <div className="col-4">
-                            <Card title="Carteira Hoje" />
+                            <CardGraphDoughnut
+                                title="Carteira Hoje"
+                                items={[
+                                    "WEGE3",
+                                    "ITUB4",
+                                    "LEVE3",
+                                    "FLRY3",
+                                    "VALE3",
+                                    "SQIA3",
+                                ]}
+                                values={[30, 20, 20, 15, 10, 5]}
+                            />
                         </div>
                         <div className="col-4">
-                            <Card title="Setores" />
+                            <CardGraphDoughnut
+                                title="Performance"
+                                items={[
+                                    "WEGE3",
+                                    "ITUB4",
+                                    "LEVE3",
+                                    "FLRY3",
+                                    "VALE3",
+                                    "SQIA3",
+                                ]}
+                                values={[30, 20, 20, 15, 10, 5]}
+                            />
                         </div>
                     </div>
                     <div className="row">

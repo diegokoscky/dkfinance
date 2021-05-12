@@ -1,5 +1,6 @@
 import style from "./CardStats.module.scss";
 import { useState, useEffect } from "react";
+import NumberFormat from "react-number-format";
 import { BsArrowDown, BsArrowUp } from "react-icons/bs";
 
 export default function CardStats(props) {
@@ -16,7 +17,13 @@ export default function CardStats(props) {
             <div className={style.card__header}>
                 <div>
                     <h2>{props.title}</h2>
-                    <span>R$ {props.value}</span>
+                    <NumberFormat
+                        value={props.value}
+                        displayType={"text"}
+                        thousandSeparator={"."}
+                        decimalSeparator={","}
+                        prefix={"R$ "}
+                    />
                 </div>
                 <div>
                     <img src={props.image} alt="Logo Empresa" />
@@ -26,7 +33,13 @@ export default function CardStats(props) {
                 <p>
                     <span className={myProfit ? `text-green` : `text-red`}>
                         {myProfit ? <BsArrowUp /> : <BsArrowDown />}
-                        {props.profit}%
+                        <NumberFormat
+                            value={props.profit}
+                            displayType={"text"}
+                            decimalSeparator={","}
+                            suffix={"%"}
+                            className={myProfit ? `text-green` : `text-red`}
+                        />
                     </span>
                 </p>
             </div>
