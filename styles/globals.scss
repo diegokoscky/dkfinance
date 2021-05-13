@@ -377,3 +377,61 @@ label {
         text-decoration: underline;
     }
 }
+
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+
+    th,
+    td {
+        text-align: left;
+        font-size: .85rem;
+        padding: .75rem 1.5rem;
+        white-space: nowrap;
+    }
+
+    thead {
+        tr {
+            th {
+                font-weight: 600;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            td {
+                border-top: 1px solid #e9ecef;
+            }
+        }
+    }
+}
+
+.table-striped {
+    tbody {
+        tr {
+            &:nth-of-type(odd) {
+                background: var(--default-lista-hover);
+            }
+        }
+    }
+}
+
+.table-condensed {
+    th,
+    td {
+        font-size: .75rem;
+    }
+
+    td,
+    th {
+            padding: .65rem 1.2rem;
+    }
+}

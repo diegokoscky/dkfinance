@@ -1,11 +1,12 @@
 import style from "./Card.module.scss";
-import { Doughnut } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 
-export default function CardGraphDoughnut(props) {
+export default function CardGraphLine(props) {
     const data = {
         labels: props.items,
         datasets: [
             {
+                label: "Performance mensal",
                 data: props.values,
                 backgroundColor: [
                     "rgba(255, 99, 132, 1)",
@@ -25,7 +26,7 @@ export default function CardGraphDoughnut(props) {
                 <h2>{props.title}</h2>
             </div>
             <div className={style.card__body}>
-                <Doughnut data={data} />
+                <Line data={data} />
             </div>
         </div>
     );
