@@ -2,7 +2,8 @@ import HeadComponent from "../components/Head";
 import Sidebar from "../components/Sidebar";
 import MainContent from "../components/MainContent";
 import Navbar from "../components/Navbar";
-import ProfileComponent from "../components/Profile";
+import HeadContent from "../components/HeadContent";
+import ProfileContent from "../components/Profile";
 import Footer from "../components/Footer";
 
 export default function Profile() {
@@ -12,7 +13,8 @@ export default function Profile() {
             <Sidebar />
             <MainContent>
                 <Navbar />
-                <ProfileComponent />
+                <HeadContent title="Perfil" />
+                <ProfileContent />
                 <Footer />
             </MainContent>
         </>

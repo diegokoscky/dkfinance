@@ -35,19 +35,18 @@ export default function Card(props) {
                         <table className="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Ação</th>
-                                    <th>Investido</th>
-                                    <th>Total Hoje</th>
-                                    <th>Lucro</th>
+                                    {content.headers.map((header) => (
+                                        <th key={header}>{header}</th>
+                                    ))}
                                 </tr>
                             </thead>
                             <tbody>
-                                {content.map((item) => (
-                                    <tr key={item.id}>
-                                        <td>{item.acao}</td>
+                                {content.rows.map((row) => (
+                                    <tr key={row.id}>
+                                        <td>{row.acao}</td>
                                         <td>
                                             <NumberFormat
-                                                value={item.investido}
+                                                value={row.investido}
                                                 displayType={"text"}
                                                 thousandSeparator={"."}
                                                 decimalSeparator={","}
@@ -56,7 +55,7 @@ export default function Card(props) {
                                         </td>
                                         <td>
                                             <NumberFormat
-                                                value={item.total}
+                                                value={row.total}
                                                 displayType={"text"}
                                                 thousandSeparator={"."}
                                                 decimalSeparator={","}
@@ -65,7 +64,7 @@ export default function Card(props) {
                                         </td>
                                         <td>
                                             <NumberFormat
-                                                value={item.lucro}
+                                                value={row.lucro}
                                                 displayType={"text"}
                                                 decimalSeparator={","}
                                                 suffix={"%"}

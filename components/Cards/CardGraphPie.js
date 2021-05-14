@@ -1,19 +1,19 @@
 import style from "./Card.module.scss";
-import { Doughnut } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
 
-export default function CardGraphDoughnut(props) {
+export default function CardGraphPie(props) {
     const data = {
         labels: props.items,
         datasets: [
             {
                 data: props.values,
                 backgroundColor: [
-                    "rgba(255, 99, 132, 1)",
-                    "rgba(54, 162, 235, 1)",
-                    "rgba(255, 206, 86, 1)",
-                    "rgba(75, 192, 192, 1)",
-                    "rgba(153, 102, 255, 1)",
-                    "rgba(255, 159, 64, 1)",
+                    "#F5365C",
+                    "#FB6340",
+                    "#2DCE89",
+                    "#5E72E4",
+                    "#11CDEF",
+                    "#FFCA20",
                 ],
             },
         ],
@@ -25,7 +25,7 @@ export default function CardGraphDoughnut(props) {
                 <h2>{props.title}</h2>
             </div>
             <div className={style.card__body}>
-                <Doughnut data={data} />
+                <Pie data={data} />
             </div>
         </div>
     );

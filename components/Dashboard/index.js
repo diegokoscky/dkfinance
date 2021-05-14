@@ -1,53 +1,56 @@
 import Card from "../Cards/Card";
 import CardStats from "../Cards/CardStats";
-import CardGraphDoughnut from "../Cards/CardGraphDoughnut";
+import CardGraphPie from "../Cards/CardGraphPie";
 import CardGraphLine from "../Cards/CardGraphLine";
 
 export default function DashboardComponent() {
-    const tabelaDetalhesObj = [
-        {
-            id: 1,
-            acao: "WEGE3",
-            investido: 950.0,
-            total: 1200.5,
-            lucro: 30.0,
-        },
-        {
-            id: 2,
-            acao: "ITUB4",
-            investido: 820.0,
-            total: 1100.5,
-            lucro: 40.0,
-        },
-        {
-            id: 3,
-            acao: "ABEV",
-            investido: 340.0,
-            total: 550.5,
-            lucro: 32.5,
-        },
-        {
-            id: 4,
-            acao: "LEVE3",
-            investido: 475.0,
-            total: 570.5,
-            lucro: 25.5,
-        },
-        {
-            id: 5,
-            acao: "FLRY3",
-            investido: 245.0,
-            total: 470.5,
-            lucro: 90.5,
-        },
-        {
-            id: 6,
-            acao: "VALE3",
-            investido: 425.0,
-            total: 470.5,
-            lucro: 15.0,
-        },
-    ];
+    const tabelaDetalhesObj = {
+        headers: ["Ação", "Investido", "Total hoje", "Lucro"],
+        rows: [
+            {
+                id: 1,
+                acao: "WEGE3",
+                investido: 950.0,
+                total: 1200.5,
+                lucro: 30.0,
+            },
+            {
+                id: 2,
+                acao: "ITUB4",
+                investido: 820.0,
+                total: 1100.5,
+                lucro: 40.0,
+            },
+            {
+                id: 3,
+                acao: "ABEV",
+                investido: 340.0,
+                total: 550.5,
+                lucro: 32.5,
+            },
+            {
+                id: 4,
+                acao: "LEVE3",
+                investido: 475.0,
+                total: 570.5,
+                lucro: 25.5,
+            },
+            {
+                id: 5,
+                acao: "FLRY3",
+                investido: 245.0,
+                total: 470.5,
+                lucro: 90.5,
+            },
+            {
+                id: 6,
+                acao: "VALE3",
+                investido: 425.0,
+                total: 470.5,
+                lucro: 15.0,
+            },
+        ],
+    };
 
     return (
         <main className="main-content">
@@ -89,7 +92,7 @@ export default function DashboardComponent() {
                     </div>
                     <div className="row">
                         <div className="col-4">
-                            <CardGraphDoughnut
+                            <CardGraphPie
                                 title="Posições"
                                 items={[
                                     "WEGE3",

@@ -7,10 +7,10 @@
     --secondary-color: #8a2be2;
     --text-color: #444444;
     --default-lista-hover: #f6f9fc;
-    --green: #25d493;
-    --red: #ec2e2e;
-    --yellow: #f3cd17;
-    --blue: #206ada;
+    --green: #2DCE89;
+    --red: #F5365C;
+    --yellow: #FFCA20;
+    --blue: #5E72E4;
     --default-fontsize: .93rem;
     --default-radius: .4rem;
     --circle-radius: 2rem;
@@ -434,4 +434,24 @@ label {
     th {
             padding: .65rem 1.2rem;
     }
+}
+
+.box {
+    background:#fff;
+    border-radius: var(--default-radius);
+    box-shadow: var(--default-boxshadow);
+    margin-bottom: 2rem;
+}
+
+.box-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(0,0,0,.05);
+
+    h2 {
+        font-weight: 600;
+    }
+}
+
+.box-content {
+    padding: 1.5rem;
 }
