@@ -22,6 +22,7 @@ export default function Profile() {
                                                     <input
                                                         type="text"
                                                         name="nome"
+                                                        placeholder="Seu nome"
                                                         className="form-control"
                                                     />
                                                 </div>
@@ -32,6 +33,7 @@ export default function Profile() {
                                                     <input
                                                         type="email"
                                                         name="email"
+                                                        placeholder="Seu email"
                                                         className="form-control"
                                                     />
                                                 </div>
@@ -45,6 +47,7 @@ export default function Profile() {
                                                     <input
                                                         type="text"
                                                         name="cpf"
+                                                        placeholder="Seu CPF"
                                                         className="form-control"
                                                     />
                                                 </div>
@@ -55,6 +58,7 @@ export default function Profile() {
                                                     <input
                                                         type="date"
                                                         name="nascimento"
+                                                        placeholder="Data de nascimento"
                                                         className="form-control"
                                                     />
                                                 </div>
@@ -65,6 +69,7 @@ export default function Profile() {
                                                     <input
                                                         type="tel"
                                                         name="tel"
+                                                        placeholder="Seu telefone"
                                                         className="form-control"
                                                     />
                                                 </div>
@@ -83,12 +88,13 @@ export default function Profile() {
                                         <form>
                                             <div className="row">
                                                 <div className="form-group col-12">
-                                                    <label htmlFor="endereco">
-                                                        Endereço
+                                                    <label htmlFor="logradouro">
+                                                        Logradouro
                                                     </label>
                                                     <input
                                                         type="text"
-                                                        name="endereco"
+                                                        name="logradouro"
+                                                        placeholder="Logradouro"
                                                         className="form-control"
                                                     />
                                                 </div>
@@ -101,6 +107,7 @@ export default function Profile() {
                                                     <input
                                                         type="text"
                                                         name="cidade"
+                                                        placeholder="Sua cidade"
                                                         className="form-control"
                                                     />
                                                 </div>
@@ -111,6 +118,7 @@ export default function Profile() {
                                                     <input
                                                         type="text"
                                                         name="uf"
+                                                        placeholder="Estado"
                                                         className="form-control"
                                                     />
                                                 </div>
@@ -121,6 +129,7 @@ export default function Profile() {
                                                     <input
                                                         type="text"
                                                         name="pais"
+                                                        placeholder="País"
                                                         className="form-control"
                                                     />
                                                 </div>

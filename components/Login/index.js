@@ -28,6 +28,7 @@ export default function Login() {
                                 type="email"
                                 name="email"
                                 id="email"
+                                placeholder="Digite seu email"
                                 className="form-control"
                             />
                         </div>
@@ -39,6 +40,7 @@ export default function Login() {
                                     type={togglePassword ? "text" : "password"}
                                     name="senha"
                                     id="senha"
+                                    placeholder="Digite sua senha"
                                     className="form-control"
                                 />
                                 <IconContext.Provider

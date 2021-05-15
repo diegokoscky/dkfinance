@@ -10,7 +10,7 @@
 }
 
 .navbar__search_container {
-    background: #f5f5f5;
+    background: var(--secondary-bg);
     border-radius: var(--circle-radius);
     box-shadow: 0 1px 3px rgb(50,50,93,.15), 0 1px 0 rgb(0,0,0,.2);
     
@@ -21,7 +21,7 @@
 }
 
 .navbar__search_icon {
-    background: #f5f5f5;
+    background: var(--secondary-bg);
     height: 100%;
     padding-left: 1rem;
     border-radius: var(--circle-radius);

@@ -1,16 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap');
 
 :root {
+    //Application colors
     --primary-bg: #8a2be2;
     --secondary-bg: #fff;
+    --gradient-bg: linear-gradient(to bottom right, #8a2be2, #692be2);
+    --body-bg: #f8f9fe;
     --primary-color: rgba(255,255,255,.9);
     --secondary-color: #8a2be2;
     --text-color: #444444;
-    --default-lista-hover: #f6f9fc;
+
+    //Generic colors
     --green: #2DCE89;
     --red: #F5365C;
     --yellow: #FFCA20;
     --blue: #5E72E4;
+    --grey: #bbbbbb;
+
+    //Default properties
+    --default-lista-hover: #f6f9fc;
     --default-fontsize: .93rem;
     --default-radius: .4rem;
     --circle-radius: 2rem;
@@ -27,7 +35,7 @@
 }
 
 body {
-    background-color: #f8f9fe;
+    background-color: var(--body-bg);
 }
 
 p,
@@ -99,15 +107,23 @@ label {
 }
 
 .form-control {
-    border: 1px solid transparent;
+    border: 1px solid #dee2e6;
     padding: 15px;
-    background: #f5f5f5;
+    background: #fff;
     width: 100%;
     border-radius: var(--default-radius);
     transition: var(--default-transition);
 
     &:focus {
-        border: 1px solid #dbcee6;
+        border: 1px solid #8a2be2;
+    }
+
+    &::placeholder {
+        color: var(--grey);
+    }
+
+    @media screen and (max-width: 991px) {
+        padding: .625rem .75rem;
     }
 }
 
@@ -350,6 +366,10 @@ label {
     font-weight: 600;
     transition: var(--default-transition);
     text-align: center;
+
+    @media screen and (max-width: 991px) {
+        padding: 12px 15px;
+    }
 }
 
 .btn--primary {

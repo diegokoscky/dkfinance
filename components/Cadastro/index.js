@@ -27,6 +27,7 @@ export default function Cadastro() {
                                 type="text"
                                 name="nome"
                                 id="nome"
+                                placeholder="Digite seu nome"
                                 className="form-control"
                             />
                         </div>
@@ -37,6 +38,7 @@ export default function Cadastro() {
                                 type="email"
                                 name="email"
                                 id="email"
+                                placeholder="Digite seu melhor email"
                                 className="form-control"
                             />
                         </div>
@@ -48,6 +50,7 @@ export default function Cadastro() {
                                     type={togglePassword ? "text" : "password"}
                                     name="senha"
                                     id="senha"
+                                    placeholder="Digite sua senha"
                                     className="form-control"
                                 />
                                 <IconContext.Provider
