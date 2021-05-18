@@ -1,11 +1,17 @@
+.profile__box_subtitle {
+    padding-top: .3rem;
+    padding-bottom: 2rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: var(--text-color-grey);
+}
+
 .profile__card {
     box-shadow: var(--default-boxshadow);
     border-radius: var(--default-radius);
     background-color: var(--secondary-bg);
-}
-
-.profile__card_inner {
-
+    transition: var(--default-transition);
+    margin-bottom: 2rem;
 }
 
 .profile__card_header {
@@ -43,13 +49,13 @@
 
     > span {
         font-weight: 600;
-        font-size: 1rem;
+        font-size: 1.05rem;
     }
 }
 
 .profile__card_body_info {
     width: 100%;
-    margin-top: 1.5rem;
+    margin-top: 1.1rem;
 
     > div {
         display: flex;
@@ -59,11 +65,20 @@
             &:first-child {
                 font-weight: 600;
                 font-size: 1.1rem;
+                display: inline-block;
+                margin-bottom: .3rem;
             }
+        }
+    }
+}
 
-            &:last-child {
+.profile__card_footer {
+    label {
+        flex-direction: row-reverse;
+        margin: 0;
 
-            }
+        span {
+            margin-right: .5rem;
         }
     }
 }

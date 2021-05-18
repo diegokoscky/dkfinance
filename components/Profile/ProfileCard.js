@@ -1,6 +1,16 @@
 import style from "./ProfileCard.module.scss";
+import Toggle from "react-toggle";
+import { useState } from "react";
+import { HiMoon, HiOutlineMoon } from "react-icons/hi";
+import "react-toggle/style.css";
 
 export default function ProfileCard() {
+    const [nightMode, setNightMode] = useState(false);
+
+    const handleNightMode = () => {
+        setNightMode(!nightMode);
+    };
+
     return (
         <div className={style.profile__card}>
             <div
@@ -29,16 +39,31 @@ export default function ProfileCard() {
                     >
                         <div>
                             <span>10</span>
-                            <span>Ações</span>
+                            <span className="tag--primary">Ações</span>
                         </div>
                         <div>
                             <span>5</span>
-                            <span>FIIs</span>
+                            <span className="tag--primary">FIIs</span>
                         </div>
                         <div>
                             <span>30%</span>
-                            <span>Lucro</span>
+                            <span className="tag--primary">Lucro</span>
                         </div>
+                    </div>
+                </div>
+                <div className={style.profile__card_footer}>
+                    <div>
+                        <label className="flex-center">
+                            <Toggle
+                                defaultChecked={nightMode}
+                                icons={{
+                                    checked: <HiMoon />,
+                                    unchecked: <HiOutlineMoon />,
+                                }}
+                                onChange={handleNightMode}
+                            />
+                            <span>Night Mode</span>
+                        </label>
                     </div>
                 </div>
             </div>

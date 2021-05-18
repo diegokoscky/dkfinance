@@ -3,12 +3,13 @@
 :root {
     //Application colors
     --primary-bg: #8a2be2;
-    --secondary-bg: #fff;
+    --secondary-bg: #ffffff;
     --gradient-bg: linear-gradient(to bottom right, #8a2be2, #692be2);
     --body-bg: #f8f9fe;
     --primary-color: rgba(255,255,255,.9);
     --secondary-color: #8a2be2;
     --text-color: #444444;
+    --text-color-grey: #9a9a9a;
 
     //Generic colors
     --green: #2DCE89;
@@ -16,6 +17,7 @@
     --yellow: #FFCA20;
     --blue: #5E72E4;
     --grey: #bbbbbb;
+    --white: #ffffff;
 
     //Default properties
     --default-lista-hover: #f6f9fc;
@@ -24,6 +26,7 @@
     --circle-radius: 2rem;
     --default-transition: .3s all ease;
     --default-boxshadow: 0 0 2rem 0 rgba(0,0,0, .05);
+    --default-btnshadow: 0 0 0 .22rem rgba(138,43,226,.5);
 }
 
 * {
@@ -106,10 +109,16 @@ label {
     margin-bottom: .5rem;
 }
 
+hr {
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    margin: 1.5rem 0;
+}
+
 .form-control {
     border: 1px solid #dee2e6;
     padding: 15px;
-    background: #fff;
+    background: var(--white);
     width: 100%;
     border-radius: var(--default-radius);
     transition: var(--default-transition);
@@ -377,8 +386,19 @@ label {
     color: var(--primary-color);
 
     &:focus {
-        box-shadow: 0 0 0 .22rem rgba(138,43,226,.5);
-        border-color: #8a2be2;
+        box-shadow: var(--default-btnshadow);
+        border-color: var(--primary-bg);
+    }
+}
+
+.btn--secondary {
+    background-color: var(--secondary-bg);
+    color: var(--secondary-color);
+    border-color: var(--primary-bg);
+
+    &:focus {
+        box-shadow: var(--default-btnshadow);
+        border-color: var(--primary-bg);
     }
 }
 
@@ -396,6 +416,16 @@ label {
         color: var(--secondary-color);
         text-decoration: underline;
     }
+}
+
+.tag--primary {
+    color: var(--primary-bg);
+    border: 1px solid var(--primary-bg);
+    display: inline-block;
+    padding: 1px 13px;
+    border-radius: 2rem;
+    font-size: 0.78rem;
+    font-weight: 600;
 }
 
 .table-responsive {
@@ -457,7 +487,7 @@ label {
 }
 
 .box {
-    background:#fff;
+    background: var(--white);
     border-radius: var(--default-radius);
     box-shadow: var(--default-boxshadow);
     margin-bottom: 2rem;

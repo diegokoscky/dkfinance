@@ -1,3 +1,4 @@
+import style from "./ProfileCard.module.scss";
 import ProfileCard from "./ProfileCard";
 
 export default function Profile() {
@@ -10,10 +11,21 @@ export default function Profile() {
                             <div className="box">
                                 <div className="box-inner">
                                     <div className="box-header">
-                                        <h2>Dados Pessoais</h2>
+                                        <h2>Seus Dados</h2>
                                     </div>
                                     <div className="box-content">
                                         <form>
+                                            <div className="row">
+                                                <div className="col">
+                                                    <h3
+                                                        className={
+                                                            style.profile__box_subtitle
+                                                        }
+                                                    >
+                                                        Dados pessoais
+                                                    </h3>
+                                                </div>
+                                            </div>
                                             <div className="row">
                                                 <div className="form-group col-6">
                                                     <label htmlFor="nome">
@@ -74,18 +86,20 @@ export default function Profile() {
                                                     />
                                                 </div>
                                             </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div className="box">
-                                <div className="box-inner">
-                                    <div className="box-header">
-                                        <h2>Endereço</h2>
-                                    </div>
-                                    <div className="box-content">
-                                        <form>
+                                            <hr />
+
+                                            <div className="row">
+                                                <div className="col">
+                                                    <h3
+                                                        className={
+                                                            style.profile__box_subtitle
+                                                        }
+                                                    >
+                                                        Endereço
+                                                    </h3>
+                                                </div>
+                                            </div>
                                             <div className="row">
                                                 <div className="form-group col-12">
                                                     <label htmlFor="logradouro">
@@ -132,6 +146,17 @@ export default function Profile() {
                                                         placeholder="País"
                                                         className="form-control"
                                                     />
+                                                </div>
+                                            </div>
+
+                                            <div className="row">
+                                                <div className="form-group col">
+                                                    <button
+                                                        type="submit"
+                                                        className="btn btn--primary"
+                                                    >
+                                                        Salvar
+                                                    </button>
                                                 </div>
                                             </div>
                                         </form>
