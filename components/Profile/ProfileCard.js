@@ -1,11 +1,12 @@
+import "react-toggle/style.css";
 import style from "./ProfileCard.module.scss";
 import Toggle from "react-toggle";
-import { useState } from "react";
+import { useContext } from "react";
 import { HiMoon, HiOutlineMoon } from "react-icons/hi";
-import "react-toggle/style.css";
+import { ThemeContext } from "../../providers/ThemeContext";
 
 export default function ProfileCard() {
-    const [nightMode, setNightMode] = useState(false);
+    const [nightMode, setNightMode] = useContext(ThemeContext);
 
     const handleNightMode = () => {
         setNightMode(!nightMode);

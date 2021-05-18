@@ -10,10 +10,10 @@
 }
 
 .navbar__search_container {
-    background: var(--secondary-bg);
+    background: var(--white);
     border-radius: var(--circle-radius);
     box-shadow: 0 1px 3px rgb(50,50,93,.15), 0 1px 0 rgb(0,0,0,.2);
-    
+    transition: var(--default-transition);
 
     @media screen and (max-width: 768px) {
         display: none;
@@ -21,13 +21,15 @@
 }
 
 .navbar__search_icon {
-    background: var(--secondary-bg);
+    background: var(--white);
     height: 100%;
     padding-left: 1rem;
     border-radius: var(--circle-radius);
+    transition: var(--default-transition);
 
     svg {
         font-size: 1.2rem;
+        color: var(--text-color);
     }
 }
 
@@ -143,7 +145,7 @@
     position: absolute;
     z-index: 10;
     right: 0;
-    background: #fff;
+    background: var(--white);
     min-width: 13rem;
     width: 100%;
     box-shadow: 0 5px 15px rgb(0,0,0,.2);
@@ -175,7 +177,7 @@
             }
 
             &:last-child {
-                border-top: 1px solid rgba(0,0,0,.03);
+                border-top: var(--default-border);
             }
 
             &:first-child {
@@ -208,7 +210,7 @@
 
     svg {
         font-size: 1.2rem;
-        color: rgba(0,0,0,.5);
+        color: var(--text-color);
     }
 }
 

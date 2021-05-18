@@ -4,6 +4,7 @@
     //Application colors
     --primary-bg: #8a2be2;
     --secondary-bg: #ffffff;
+    --primary-button-bg: #8a2be2;
     --gradient-bg: linear-gradient(to bottom right, #8a2be2, #692be2);
     --body-bg: #f8f9fe;
     --primary-color: rgba(255,255,255,.9);
@@ -21,6 +22,7 @@
 
     //Default properties
     --default-lista-hover: #f6f9fc;
+    --default-border: 1px solid #efefef;
     --default-fontsize: .93rem;
     --default-radius: .4rem;
     --circle-radius: 2rem;
@@ -29,16 +31,46 @@
     --default-btnshadow: 0 0 0 .22rem rgba(138,43,226,.5);
 }
 
+.night-mode {
+    --primary-bg: #292f38;
+    --primary-button-bg: #913be0;
+    --body-bg: #292f38;
+    --text-color: rgba(255,255,255,.9);
+    --text-color-grey: #9a9a9a;
+
+    --white: #22272E;
+    
+    --default-lista-hover: #272d35;
+    --default-border: 1px solid rgba(255,255,255,.1);
+    --default-boxshadow: none;
+    --default-btnshadow: 0 0 0 .22rem rgba(138,43,226,.5);
+
+    ::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+    }
+
+    .react-toggle--checked {
+        .react-toggle-thumb {
+            border-color: var(--primary-button-bg);
+        }
+
+        .react-toggle-track,
+        &:hover:not(.react-toggle--disabled) .react-toggle-track {
+            background-color: var(--primary-button-bg);
+        }
+
+        svg {
+            color: var(--text-color);
+        }
+    }
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     font: 100% 'Noto Sans JP', sans-serif;
     outline: none;
-}
-
-body {
-    background-color: var(--body-bg);
 }
 
 p,
@@ -111,12 +143,16 @@ label {
 
 hr {
     border: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: var(--default-border);
     margin: 1.5rem 0;
 }
 
+.application {
+    background-color: var(--body-bg);
+}
+
 .form-control {
-    border: 1px solid #dee2e6;
+    border: var(--default-border);
     padding: 15px;
     background: var(--white);
     width: 100%;
@@ -124,7 +160,7 @@ hr {
     transition: var(--default-transition);
 
     &:focus {
-        border: 1px solid #8a2be2;
+        border: 1px solid var(--primary-bg);
     }
 
     &::placeholder {
@@ -382,7 +418,7 @@ hr {
 }
 
 .btn--primary {
-    background-color: var(--primary-bg);
+    background-color: var(--primary-button-bg);
     color: var(--primary-color);
 
     &:focus {
@@ -419,8 +455,8 @@ hr {
 }
 
 .tag--primary {
-    color: var(--primary-bg);
-    border: 1px solid var(--primary-bg);
+    color: var(--primary-button-bg);
+    border: 1px solid var(--primary-button-bg);
     display: inline-block;
     padding: 1px 13px;
     border-radius: 2rem;
@@ -445,6 +481,7 @@ hr {
         font-size: .85rem;
         padding: .75rem 1.5rem;
         white-space: nowrap;
+        color: var(--text-color);
     }
 
     thead {
@@ -458,7 +495,7 @@ hr {
     tbody {
         tr {
             td {
-                border-top: 1px solid #e9ecef;
+                border-top: var(--default-border);
             }
         }
     }
@@ -495,7 +532,7 @@ hr {
 
 .box-header {
     padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid rgba(0,0,0,.05);
+    border-bottom: var(--default-border);
 
     h2 {
         font-weight: 600;

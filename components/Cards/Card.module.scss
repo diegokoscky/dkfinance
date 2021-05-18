@@ -1,5 +1,5 @@
 .card {
-    background: var(--secondary-bg);
+    background: var(--white);
     box-shadow: var(--default-boxshadow);
     border-radius: var(--default-radius);
     margin-bottom: 2rem;
@@ -12,7 +12,7 @@
 
 .card__header {
     padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid rgba(0,0,0,.05);
+    border-bottom: var(--default-border);
     
     h2 {
         font-weight: 600;
