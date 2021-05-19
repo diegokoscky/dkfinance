@@ -17,6 +17,7 @@
     --red: #F5365C;
     --yellow: #FFCA20;
     --blue: #5E72E4;
+    --orange: #ff9b20;
     --grey: #bbbbbb;
     --white: #ffffff;
 
@@ -401,6 +402,14 @@ hr {
     color: var(--yellow);
 }
 
+.bg-orange {
+    background: var(--orange);
+}
+
+.text-yorange {
+    color: var(--orange);
+}
+
 .btn {
     padding: 15px 20px;
     border: 1px solid transparent;
@@ -541,4 +550,14 @@ hr {
 
 .box-content {
     padding: 1.5rem;
+}
+
+@keyframes opacity-transition {
+    0% {
+      opacity: 0;
+      transition: visibility .25, opacity .25s;
+    }
+    100% {
+      opacity: 1;
+    }
 }

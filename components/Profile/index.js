@@ -1,9 +1,15 @@
 import style from "./ProfileCard.module.scss";
 import ProfileCard from "./ProfileCard";
+import Notification from "../Notification";
 
 export default function Profile() {
     return (
         <main className="main-content">
+            <Notification
+                title="Notificação"
+                text="Teste de notificação aqui"
+                tipo="danger"
+            />
             <div className="container">
                 <div className="main-content-wrapper">
                     <div className="row">

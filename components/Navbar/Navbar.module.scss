@@ -213,13 +213,3 @@
         color: var(--text-color);
     }
 }
-
-@keyframes opacity-transition {
-    0% {
-      opacity: 0;
-      transition: visibility .25, opacity .25s;
-    }
-    100% {
-      opacity: 1;
-    }
-}
