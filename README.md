@@ -1,5 +1,7 @@
 # App DKFinance
 
+![](https://www.diegokoscky.com.br/imgs/externos/dkfinance.png)
+
 Tecnologias:
 
 -   [React.js](https://reactjs.org/)
