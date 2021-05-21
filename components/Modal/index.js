@@ -37,7 +37,8 @@ export default function Modal(props) {
                                 <button
                                     type="button"
                                     className={
-                                        `btn btn--primary ` + style.modal__close
+                                        `btn btn--primary btn--sm ` +
+                                        style.modal__close
                                     }
                                     onClick={toggleModal}
                                 >
