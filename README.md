@@ -2,6 +2,8 @@
 
 ![](https://www.diegokoscky.com.br/imgs/externos/dkfinance.png)
 
+### Aplicação de investimentos em Next.JS com design system próprio.
+
 Tecnologias:
 
 -   [React.js](https://reactjs.org/)
