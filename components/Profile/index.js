@@ -1,6 +1,7 @@
 import style from "./ProfileCard.module.scss";
 import ProfileCard from "./ProfileCard";
 import Notification from "../Notification";
+import Modal from "../Modal";
 
 export default function Profile() {
     return (
@@ -10,6 +11,9 @@ export default function Profile() {
                 text="Teste de notificação aqui"
                 tipo="danger"
             />
+
+            <Modal />
+
             <div className="container">
                 <div className="main-content-wrapper">
                     <div className="row">
