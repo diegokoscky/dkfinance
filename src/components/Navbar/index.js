@@ -15,21 +15,23 @@ import {
 } from "react-icons/io5";
 import { CgMenuRightAlt } from "react-icons/cg";
 import style from "./Navbar.module.scss";
+import { useRouter } from "next/router";
+import { destroyCookie } from "nookies";
 
 export default function Navbar() {
-    // TOGGLE SIDEBAR
+    // Toggle sidebar
     const [sidebarToggle, setSidebarToggle] = useContext(AppContext);
     const toggle = () => {
         setSidebarToggle(!sidebarToggle);
     };
 
-    // MOSTRA A BUSCA MOBILE
+    // Mostra a busca mobile
     const [showSearch, setShowSearch] = useState(false);
     const toggleSearch = () => {
         setShowSearch(!showSearch);
     };
 
-    // DROPDOWN NOTIFICAÇÕES
+    // Dropdown notificações
     const [dropNotification, setDropNotification] = useState(false);
     const toggleDropNotification = () => {
         setDropNotification(!dropNotification);
@@ -46,7 +48,7 @@ export default function Navbar() {
         setDropNotification(false);
     };
 
-    // DROPDOWN PERFIL
+    // Dropdown perfil
     const [dropProfile, setDropProfile] = useState(false);
     const toggleDropProfile = () => {
         setDropProfile(!dropProfile);
@@ -63,7 +65,7 @@ export default function Navbar() {
         setDropProfile(false);
     };
 
-    // MANIPULA OS EVENTOS DE CLIQUE DOS DROPDOWNS
+    // Manipula os eventos de clique dos dropdowns
     useEffect(() => {
         // Adiciona o evento na montagem
         document.addEventListener("mousedown", handleNotificationNode);
@@ -75,6 +77,16 @@ export default function Navbar() {
             document.removeEventListener("mousedown", handleProfileNode);
         };
     }, []);
+
+    // Inicializa o router para redirect
+    const router = useRouter();
+
+    // Faz o logout
+    const handleLogout = () => {
+        destroyCookie(null, "AUTH");
+
+        router.push("/");
+    };
 
     return (
         <header>
@@ -258,11 +270,12 @@ export default function Navbar() {
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="/">
-                                                    <a className="flex-start">
-                                                        <IoLogOutOutline /> Sair
-                                                    </a>
-                                                </Link>
+                                                <a
+                                                    className="flex-start"
+                                                    onClick={handleLogout}
+                                                >
+                                                    <IoLogOutOutline /> Sair
+                                                </a>
                                             </li>
                                         </ul>
                                     </div>

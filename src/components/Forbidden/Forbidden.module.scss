@@ -1,0 +1,29 @@
+@use '../Modal/Modal.module';
+
+.forbidden__content {
+    padding: 3rem;
+}
+
+.forbidden__header,
+.forbidden__footer {
+    justify-content: center;
+}
+
+.forbidden__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding-bottom: 0;
+
+    h4 {
+        font-size: 1.3rem;
+        margin-top: 1rem;
+    }
+}
+
+.forbidden__body {
+    p {
+        text-align: center;
+    }    
+}
