@@ -44,7 +44,7 @@ export default function Login() {
         // Armazena a resposta da requisição e transforma em json
         const data = await response.json();
 
-        if (data.user) {
+        if (data.status) {
             setAuth(true);
             setCookie(null, "AUTH", true, {
                 maxAge: 86400,

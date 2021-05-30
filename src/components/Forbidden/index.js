@@ -58,7 +58,11 @@ export default function Forbidden() {
                         </div>
                     </div>
                 </div>
-                <div className={style.modal__backdrop}></div>
+                <div
+                    className={
+                        style.modal__backdrop + ` ` + style.forbidden__backdrop
+                    }
+                ></div>
             </div>
         </>
     );

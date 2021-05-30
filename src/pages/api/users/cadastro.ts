@@ -9,6 +9,7 @@ export default async function handler(
     try {
         // Recebe o conteúdo da requisição
         const { method } = req;
+        const { userName } = req.body;
         const { userEmail } = req.body;
         const { userPassword } = req.body;
 
@@ -17,20 +18,24 @@ export default async function handler(
                 // Criptografa a senha
                 const hashPassword = criptografar(userPassword);
 
-                const query = { email: userEmail, senha: hashPassword };
+                const query = {
+                    nome: userName,
+                    email: userEmail,
+                    senha: hashPassword,
+                };
                 const db = await connectToDatabase();
 
-                const data = await db.collection("users").findOne(query);
+                const data = await db.collection("users").insertOne(query);
 
                 if (data) {
-                    res.status(200).json({
+                    res.status(201).json({
                         status: true,
-                        message: "Usuário encontrado",
+                        message: "Cadastro realizado",
                     });
                 } else {
                     res.status(200).json({
                         status: false,
-                        message: "Usuário não encontrado",
+                        message: "Cadastro não realizado",
                     });
                 }
 
