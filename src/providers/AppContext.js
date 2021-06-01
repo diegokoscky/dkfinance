@@ -32,6 +32,9 @@ export const AppProvider = ({ children }) => {
         }
     }, []);
 
+    /* Notification */
+    const [notification, setNotification] = useState();
+
     /* Sidebar */
     const [sidebarToggle, setSidebarToggle] = useState(false);
 
@@ -40,6 +43,7 @@ export const AppProvider = ({ children }) => {
             value={{
                 authentication: [auth, setAuth],
                 theme: [nightMode, setNightMode],
+                notification: [notification, setNotification],
                 sidebar: [sidebarToggle, setSidebarToggle],
             }}
         >

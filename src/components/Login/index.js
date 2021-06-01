@@ -13,21 +13,22 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
 
-    // Cria o state para manipular as notificações
-    const [notifica, setNotifica] = useState(false);
+    // Recebe o estado do notification do AppProvider
+    const { notification } = useContext(AppContext);
+    const [notifica, setNotifica] = notification;
 
     // Cria o state para receber os retornos
     const [retornos, setRetornos] = useState([]);
+
+    // Recebe o estado do Auth do AppProvider
+    const { authentication } = useContext(AppContext);
+    const [auth, setAuth] = authentication;
 
     // Mostra ou esconde a senha
     const [togglePassword, setTogglePassword] = useState(false);
     const toggle = () => {
         setTogglePassword(!togglePassword);
     };
-
-    // Recebe o estado do Auth do AppProvider
-    const { authentication } = useContext(AppContext);
-    const [auth, setAuth] = authentication;
 
     // Inicializa o router para redirect
     const router = useRouter();
@@ -37,16 +38,19 @@ export default function Login() {
         event.preventDefault();
 
         // Envia a requisição para o endpoint da API
-        const response = await fetch("/api/users/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                userEmail: meuEmail,
-                userPassword: minhaSenha,
-            }),
-        });
+        const response = await fetch(
+            "https://dkfinance.vercel.app/api/users/login",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    userEmail: meuEmail,
+                    userPassword: minhaSenha,
+                }),
+            }
+        );
 
         // Armazena a resposta da requisição e transforma em json
         const data = await response.json();
@@ -61,6 +65,7 @@ export default function Login() {
 
             router.push("/dashboard");
         } else {
+            // Senão retorna os erros e habilita o notification
             setRetornos(data);
             setNotifica(true);
         }
