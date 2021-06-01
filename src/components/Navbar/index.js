@@ -19,8 +19,11 @@ import { useRouter } from "next/router";
 import { destroyCookie } from "nookies";
 
 export default function Navbar() {
+    // Recebe o estado do toggleSidebar do AppProvider
+    const { sidebar } = useContext(AppContext);
+    const [sidebarToggle, setSidebarToggle] = sidebar;
+
     // Toggle sidebar
-    const [sidebarToggle, setSidebarToggle] = useContext(AppContext);
     const toggle = () => {
         setSidebarToggle(!sidebarToggle);
     };

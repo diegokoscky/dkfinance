@@ -16,7 +16,7 @@ export default function Cadastro() {
         setTogglePassword(!togglePassword);
     };
 
-    // Gerencia o login no onSubmit do form
+    // Gerencia o cadastro no onSubmit do form
     const handleCadastro = async (meuNome, meuEmail, minhaSenha) => {
         event.preventDefault();
 
@@ -36,6 +36,7 @@ export default function Cadastro() {
         // Armazena a resposta da requisição e transforma em json
         const data = await response.json();
 
+        // Se o retorno for true,
         if (data.status) {
             //
         } else {

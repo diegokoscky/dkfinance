@@ -30,7 +30,9 @@ export default async function handler(
                 } else {
                     res.status(200).json({
                         status: false,
+                        titulo: "Erro",
                         message: "Usuário não encontrado",
+                        label: "danger",
                     });
                 }
 

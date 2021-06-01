@@ -4,22 +4,14 @@ import MainContent from "../components/MainContent";
 import Navbar from "../components/Navbar";
 import HeadContent from "../components/HeadContent";
 import ProfileContent from "../components/Profile";
-import { useContext, useEffect } from "react";
-import { AuthContext } from "../providers/AuthContext";
-import { parseCookies } from "nookies";
+import { useContext } from "react";
+import { AppContext } from "../providers/AppContext";
 import Forbidden from "../components/Forbidden";
 
 export default function Profile() {
-    // Recebe o estado do AuthProvider
-    const [auth, setAuth] = useContext(AuthContext);
-
-    // Busca os cookies
-    const authCookie = parseCookies();
-
-    // Atualiza o estado do AuthProvider com o cookie de autenticação
-    useEffect(() => {
-        setAuth(authCookie.AUTH);
-    }, []);
+    // Recebe o estado do Auth do AppProvider
+    const { authentication } = useContext(AppContext);
+    const [auth, setAuth] = authentication;
 
     if (auth) {
         return (

@@ -1,16 +1,31 @@
 import "react-toggle/style.css";
 import style from "./ProfileCard.module.scss";
 import Toggle from "react-toggle";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { HiMoon, HiOutlineMoon } from "react-icons/hi";
-import { ThemeContext } from "../../providers/ThemeContext";
+import { AppContext } from "../../providers/AppContext";
+import { setCookie, destroyCookie } from "nookies";
 
 export default function ProfileCard() {
-    const [nightMode, setNightMode] = useContext(ThemeContext);
+    // Recebe o estado do Tema do AppProvider
+    const { theme } = useContext(AppContext);
+    const [nightMode, setNightMode] = theme;
 
     const handleNightMode = () => {
         setNightMode(!nightMode);
     };
+
+    // Cria ou destrói o cookie de tema sempre que o nightMode se altera
+    useEffect(() => {
+        if (nightMode) {
+            setCookie(null, "NIGHTM", true, {
+                maxAge: 86400 * 30 * 12 * 12,
+                path: "/",
+            });
+        } else {
+            destroyCookie(null, "NIGHTM");
+        }
+    }, [nightMode]);
 
     return (
         <div className={style.profile__card}>

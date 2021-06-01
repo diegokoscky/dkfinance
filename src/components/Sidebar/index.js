@@ -14,7 +14,11 @@ import {
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 
 export default function Sidebar() {
-    const [sidebarToggle, setSidebarToggle] = useContext(AppContext);
+    // Recebe o estado do toggleSidebar do AppProvider
+    const { sidebar } = useContext(AppContext);
+    const [sidebarToggle, setSidebarToggle] = sidebar;
+
+    // Toggle sidebar
     const toggle = () => {
         setSidebarToggle(!sidebarToggle);
     };
