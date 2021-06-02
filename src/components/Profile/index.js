@@ -6,12 +6,6 @@ import Modal from "../Modal";
 export default function Profile() {
     return (
         <main className="main-content">
-            <Notification
-                title="Notificação"
-                text="Teste de notificação aqui"
-                tipo="danger"
-            />
-
             <Modal />
 
             <div className="container">
