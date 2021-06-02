@@ -1,60 +1,74 @@
 import style from "./Modal.module.scss";
-import { useState } from "react";
+import { useContext } from "react";
+import { AppContext } from "../../providers/AppContext";
+import Image from "next/image";
 
 export default function Modal(props) {
-    const [show, setShow] = useState(true);
+    // Recebe o estado do modal do AppProvider
+    const { modal } = useContext(AppContext);
+    const [show, setShow] = modal;
 
-    const toggleModal = () => {
-        setShow(!show);
+    const closeModal = () => {
+        setShow(false);
     };
 
     return (
-        <>
-            {show ? (
-                <div className={style.modal}>
-                    <div className={style.modal__inner}>
-                        <div className={style.modal__content}>
-                            <div className={style.modal__header}>
-                                <h4>Título do modal</h4>
-                                <button
-                                    type="button"
-                                    className={style.modal__close}
-                                    onClick={toggleModal}
-                                >
-                                    ×
-                                </button>
-                            </div>
-                            <div className={style.modal__body}>
-                                <p>
-                                    Far far away, behind the word mountains, far
-                                    from the countries Vokalia and Consonantia,
-                                    there live the blind texts. Separated they
-                                    live in Bookmarksgrove right at the coast of
-                                    the Semantics, a large language ocean.
-                                </p>
-                            </div>
-                            <div className={style.modal__footer}>
-                                <button
-                                    type="button"
-                                    className={
-                                        `btn btn--primary btn--sm ` +
-                                        style.modal__close
-                                    }
-                                    onClick={toggleModal}
-                                >
-                                    Fechar
-                                </button>
-                            </div>
-                        </div>
+        <div className={style.modal}>
+            <div className={style.modal__inner}>
+                <div className={style.modal__content}>
+                    <div className={style.modal__header}>
+                        <h4>{props.title}</h4>
+                        <button
+                            type="button"
+                            className={style.modal__close}
+                            onClick={closeModal}
+                            title="Fechar"
+                        >
+                            ×
+                        </button>
                     </div>
-                    <div
-                        className={style.modal__backdrop}
-                        onClick={toggleModal}
-                    ></div>
+                    <div className={style.modal__body}>
+                        {props.image ? (
+                            <Image
+                                src={`/images/` + props.image}
+                                alt="Imagem do modal"
+                                width="auto"
+                                height="auto"
+                            />
+                        ) : (
+                            ""
+                        )}
+
+                        {props.icon ? (
+                            <Image
+                                src={`/icons/` + props.icon}
+                                alt="Ícone do modal"
+                                width="auto"
+                                height="auto"
+                            />
+                        ) : (
+                            ""
+                        )}
+
+                        {props.titleText ? <h4>{props.titleText}</h4> : ""}
+
+                        {props.text ? <p>{props.text}</p> : ""}
+                    </div>
+                    <div className={style.modal__footer}>
+                        <button
+                            type="button"
+                            className={
+                                `btn btn--secondary btn--sm ` +
+                                style.modal__close
+                            }
+                            onClick={closeModal}
+                        >
+                            {props.button}
+                        </button>
+                    </div>
                 </div>
-            ) : (
-                ""
-            )}
-        </>
+            </div>
+            <div className={style.modal__backdrop} onClick={closeModal}></div>
+        </div>
     );
 }

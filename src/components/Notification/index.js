@@ -7,6 +7,7 @@ export default function Notification(props) {
     // Recebe o estado do notification do AppProvider
     const { notification } = useContext(AppContext);
     const [show, setShow] = notification;
+
     const closeNotification = () => {
         setShow(false);
     };

@@ -438,13 +438,13 @@ hr {
 }
 
 .btn--secondary {
-    background-color: var(--secondary-bg);
+    background-color: var(--white);
     color: var(--secondary-color);
-    border-color: var(--primary-bg);
+    border-color: transparent;
 
     &:focus {
         box-shadow: var(--default-btnshadow);
-        border-color: var(--primary-bg);
+        border-color: transparent;
     }
 }
 

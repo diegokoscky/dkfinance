@@ -35,6 +35,9 @@ export const AppProvider = ({ children }) => {
     /* Notification */
     const [notification, setNotification] = useState();
 
+    /* Modal */
+    const [modal, setModal] = useState();
+
     /* Sidebar */
     const [sidebarToggle, setSidebarToggle] = useState(false);
 
@@ -44,6 +47,7 @@ export const AppProvider = ({ children }) => {
                 authentication: [auth, setAuth],
                 theme: [nightMode, setNightMode],
                 notification: [notification, setNotification],
+                modal: [modal, setModal],
                 sidebar: [sidebarToggle, setSidebarToggle],
             }}
         >
