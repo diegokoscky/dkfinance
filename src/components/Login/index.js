@@ -38,19 +38,16 @@ export default function Login() {
         event.preventDefault();
 
         // Envia a requisição para o endpoint da API
-        const response = await fetch(
-            "https://dkfinance.vercel.app/api/users/login",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    userEmail: meuEmail,
-                    userPassword: minhaSenha,
-                }),
-            }
-        );
+        const response = await fetch("/api/users/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                userEmail: meuEmail,
+                userPassword: minhaSenha,
+            }),
+        });
 
         // Armazena a resposta da requisição e transforma em json
         const data = await response.json();

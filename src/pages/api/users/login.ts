@@ -43,6 +43,11 @@ export default async function handler(
                 res.status(405).end("Forbidden");
         }
     } catch (err) {
-        res.status(500).json({ statusCode: 500, message: err.message });
+        res.status(500).json({
+            status: false,
+            titulo: "Erro",
+            message: err.message,
+            label: "danger",
+        });
     }
 }
