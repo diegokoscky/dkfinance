@@ -34,8 +34,15 @@ export default function Login() {
     const router = useRouter();
 
     // Gerencia o login no onSubmit do form
-    const handleLogin = async (meuEmail, minhaSenha) => {
-        event.preventDefault();
+    const handleLogin = async (e) => {
+        e.preventDefault();
+
+        console.log("Sending...");
+
+        let dataSend = {
+            email,
+            senha,
+        };
 
         // Envia a requisição para o endpoint da API
         const response = await fetch("/api/users/login", {
@@ -43,10 +50,7 @@ export default function Login() {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-                userEmail: meuEmail,
-                userPassword: minhaSenha,
-            }),
+            body: JSON.stringify(dataSend),
         });
 
         // Armazena a resposta da requisição e transforma em json
@@ -79,7 +83,7 @@ export default function Login() {
                         </h1>
                     </div>
                     <div>
-                        <form onSubmit={(e) => handleLogin(email, senha)}>
+                        <form onSubmit={(e) => handleLogin(e)}>
                             <div className="form-group">
                                 <label htmlFor="email">Seu email</label>
                                 <input
@@ -90,6 +94,7 @@ export default function Login() {
                                     className="form-control"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
+                                    required
                                 />
                             </div>
 
@@ -108,6 +113,7 @@ export default function Login() {
                                         onChange={(e) =>
                                             setSenha(e.target.value)
                                         }
+                                        required
                                     />
                                     <IconContext.Provider
                                         value={{

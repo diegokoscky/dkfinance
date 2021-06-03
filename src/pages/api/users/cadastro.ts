@@ -9,33 +9,75 @@ export default async function handler(
     try {
         // Recebe o conteúdo da requisição
         const { method } = req;
-        const { userName } = req.body;
-        const { userEmail } = req.body;
-        const { userPassword } = req.body;
+        const { nome } = req.body;
+        const { email } = req.body;
+        const { senha } = req.body;
 
         switch (method) {
             case "POST":
-                // Criptografa a senha
-                const hashPassword = criptografar(userPassword);
-
-                const query = {
-                    nome: userName,
-                    email: userEmail,
-                    senha: hashPassword,
-                };
+                // Conecta no banco de dados
                 const db = await connectToDatabase();
 
+                // Valida a senha
+                if (senha.length < 8) {
+                    res.status(200).json({
+                        status: false,
+                        titulo: "Erro",
+                        message: "A senha deve conter pelo menos 8 caracteres.",
+                        label: "danger",
+                    });
+
+                    break;
+                }
+
+                // Valida o email
+                const validaEmail = {
+                    email: email,
+                };
+                // Busca o email no banco
+                const retornoEmail = await db
+                    .collection("users")
+                    .findOne(validaEmail);
+
+                if (retornoEmail) {
+                    res.status(200).json({
+                        status: false,
+                        titulo: "Erro",
+                        message: "Já existe uma conta com esse email.",
+                        label: "danger",
+                    });
+
+                    break;
+                }
+
+                // Criptografa a senha
+                const hashPassword = criptografar(senha);
+
+                // Monta os parâmetros da query
+                const query = {
+                    nome: nome,
+                    email: email,
+                    senha: hashPassword,
+                };
+
+                // Realiza a query no banco
                 const data = await db.collection("users").insertOne(query);
 
+                // Retornos
                 if (data) {
                     res.status(201).json({
                         status: true,
-                        message: "Cadastro realizado",
+                        titulo: "Sucesso",
+                        message: "Sua conta foi criada! Faça o login.",
+                        label: "success",
                     });
                 } else {
                     res.status(200).json({
                         status: false,
-                        message: "Cadastro não realizado",
+                        titulo: "Erro",
+                        message:
+                            "Sua conta não pôde ser criada. Tente novamente.",
+                        label: "danger",
                     });
                 }
 

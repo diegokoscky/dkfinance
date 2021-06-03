@@ -9,29 +9,34 @@ export default async function handler(
     try {
         // Recebe o conteúdo da requisição
         const { method } = req;
-        const { userEmail } = req.body;
-        const { userPassword } = req.body;
+        const { email } = req.body;
+        const { senha } = req.body;
 
         switch (method) {
             case "POST":
                 // Criptografa a senha
-                const hashPassword = criptografar(userPassword);
+                const hashPassword = criptografar(senha);
 
-                const query = { email: userEmail, senha: hashPassword };
+                // Monta os parâmetros da query
+                const query = { email: email, senha: hashPassword };
+
+                // Conecta no banco de dados
                 const db = await connectToDatabase();
 
+                // Realiza a query no banco
                 const data = await db.collection("users").findOne(query);
 
+                // Retornos
                 if (data) {
                     res.status(200).json({
                         status: true,
-                        message: "Usuário encontrado",
+                        message: "Usuário encontrado.",
                     });
                 } else {
                     res.status(200).json({
                         status: false,
                         titulo: "Erro",
-                        message: "Usuário não encontrado",
+                        message: "Email ou senha incorretos.",
                         label: "danger",
                     });
                 }

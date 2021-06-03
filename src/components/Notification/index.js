@@ -33,6 +33,11 @@ export default function Notification(props) {
         }
     }, []);
 
+    // Fecha após 5 segundos
+    setTimeout(() => {
+        closeNotification();
+    }, 5000);
+
     return (
         <div className={style.notification + ` flex-center`}>
             <div className={style.notification__inner + ` ` + cor}>
