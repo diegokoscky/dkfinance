@@ -2,7 +2,7 @@ import "react-toggle/style.css";
 import style from "./ProfileCard.module.scss";
 import Toggle from "react-toggle";
 import { useContext, useEffect } from "react";
-import { HiMoon, HiOutlineMoon } from "react-icons/hi";
+import { HiMoon, HiSun } from "react-icons/hi";
 import { AppContext } from "../../providers/AppContext";
 import { setCookie, destroyCookie } from "nookies";
 
@@ -74,7 +74,13 @@ export default function ProfileCard() {
                                 defaultChecked={nightMode}
                                 icons={{
                                     checked: <HiMoon />,
-                                    unchecked: <HiOutlineMoon />,
+                                    unchecked: (
+                                        <HiSun
+                                            className={
+                                                style.profile__light_theme
+                                            }
+                                        />
+                                    ),
                                 }}
                                 onChange={handleNightMode}
                             />
