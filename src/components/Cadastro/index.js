@@ -5,6 +5,7 @@ import { IoFingerPrint, IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { IconContext } from "react-icons/lib";
 import { AppContext } from "../../providers/AppContext";
 import Notification from "../Notification/";
+import Button from "../Button";
 
 export default function Cadastro() {
     // Recebe o estado dos inputs
@@ -15,6 +16,10 @@ export default function Cadastro() {
     // Recebe o estado do notification do AppProvider
     const { notification } = useContext(AppContext);
     const [notifica, setNotifica] = notification;
+
+    // Recebe o estado do loading do AppProvider
+    const { loadingButton } = useContext(AppContext);
+    const [loading, setLoading] = loadingButton;
 
     // Cria o state para receber os retornos
     const [retornos, setRetornos] = useState([]);
@@ -29,7 +34,8 @@ export default function Cadastro() {
     const handleCadastro = async (e) => {
         e.preventDefault();
 
-        console.log("Sending...");
+        // Ativa o loading do botão
+        setLoading(true);
 
         let dataSend = {
             nome,
@@ -52,6 +58,9 @@ export default function Cadastro() {
         // Retorna a mensagem de sucesso ou de erro
         setRetornos(data);
         setNotifica(true);
+
+        // Desativa o loading do botão
+        setLoading(false);
     };
 
     return (
@@ -133,13 +142,12 @@ export default function Cadastro() {
                             </div>
 
                             <div className="form-group">
-                                <button
+                                <Button
                                     type="submit"
-                                    className="btn btn--block btn--primary"
-                                    title="Criar Conta"
-                                >
-                                    Criar Conta
-                                </button>
+                                    appear="btn btn--primary btn--block"
+                                    text="Criar Conta"
+                                    loading={true}
+                                />
                             </div>
 
                             <div className={style.login__basic_link}>

@@ -407,7 +407,7 @@ hr {
     background: var(--orange);
 }
 
-.text-yorange {
+.text-orange {
     color: var(--orange);
 }
 
@@ -421,6 +421,7 @@ hr {
     font-weight: 600;
     transition: var(--default-transition);
     text-align: center;
+    position: relative;
 
     @media screen and (max-width: 991px) {
         padding: 12px 15px;

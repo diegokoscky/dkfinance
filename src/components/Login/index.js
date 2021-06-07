@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { AppContext } from "../../providers/AppContext";
 import { setCookie } from "nookies";
 import Notification from "../Notification/";
+import Button from "../Button/";
 
 export default function Login() {
     // Recebe o estado dos inputs
@@ -16,6 +17,10 @@ export default function Login() {
     // Recebe o estado do notification do AppProvider
     const { notification } = useContext(AppContext);
     const [notifica, setNotifica] = notification;
+
+    // Recebe o estado do loading do AppProvider
+    const { loadingButton } = useContext(AppContext);
+    const [loading, setLoading] = loadingButton;
 
     // Cria o state para receber os retornos
     const [retornos, setRetornos] = useState([]);
@@ -37,7 +42,8 @@ export default function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
 
-        console.log("Sending...");
+        // Ativa o loading do botão
+        setLoading(true);
 
         let dataSend = {
             email,
@@ -64,11 +70,17 @@ export default function Login() {
                 path: "/",
             });
 
+            // Desativa o loading do botão
+            setLoading(false);
+
             router.push("/dashboard");
         } else {
             // Senão retorna os erros e habilita o notification
             setRetornos(data);
             setNotifica(true);
+
+            // Desativa o loading do botão
+            setLoading(false);
         }
     };
 
@@ -137,13 +149,12 @@ export default function Login() {
                             </div>
 
                             <div className="form-group">
-                                <button
+                                <Button
                                     type="submit"
-                                    className="btn btn--block btn--primary"
-                                    title="Entrar"
-                                >
-                                    Entrar
-                                </button>
+                                    appear="btn btn--primary btn--block"
+                                    text="Entrar"
+                                    loading={true}
+                                />
                             </div>
 
                             <div className={style.login__basic_link}>

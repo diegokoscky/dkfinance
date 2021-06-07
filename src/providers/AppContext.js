@@ -41,6 +41,9 @@ export const AppProvider = ({ children }) => {
     /* Sidebar */
     const [sidebarToggle, setSidebarToggle] = useState(false);
 
+    /* Loading Button */
+    const [loading, setLoading] = useState(false);
+
     return (
         <AppContext.Provider
             value={{
@@ -49,6 +52,7 @@ export const AppProvider = ({ children }) => {
                 notification: [notification, setNotification],
                 modal: [modal, setModal],
                 sidebar: [sidebarToggle, setSidebarToggle],
+                loadingButton: [loading, setLoading],
             }}
         >
             <div
