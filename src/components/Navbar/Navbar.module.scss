@@ -118,18 +118,18 @@
 
 .navbar__profile {
     position: relative;
-    
-    .navbar__nome_perfil {
-        margin-left: .5rem;
-        color: var(--primary-color);
-
-        @media screen and (max-width: 768px) {
-            display: none;
-        }
-    }
 
     > span {
         cursor: pointer;
+    }
+}
+
+.navbar__nome_perfil {
+    margin-left: .5rem;
+    color: var(--primary-color);
+
+    @media screen and (max-width: 768px) {
+        display: none;
     }
 }
 

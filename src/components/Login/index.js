@@ -8,6 +8,7 @@ import { AppContext } from "../../providers/AppContext";
 import { setCookie } from "nookies";
 import Notification from "../Notification/";
 import Button from "../Button/";
+import criptografar from "../../utils/crypt";
 
 export default function Login() {
     // Recebe o estado dos inputs
@@ -65,7 +66,19 @@ export default function Login() {
         // Se o retorno for true, seta o cookie e direciona pra dashboard
         if (data.status) {
             setAuth(true);
-            setCookie(null, "AUTH", true, {
+            setCookie(null, "_adkf", true, {
+                maxAge: 86400,
+                path: "/",
+            });
+
+            const _audkf = criptografar(email);
+            setCookie(null, "_audkf", _audkf, {
+                maxAge: 86400,
+                path: "/",
+            });
+
+            const _apdkf = criptografar(senha);
+            setCookie(null, "_apdkf", _apdkf, {
                 maxAge: 86400,
                 path: "/",
             });

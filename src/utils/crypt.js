@@ -1,6 +1,6 @@
 import crypto from "crypto";
 
-export default function Criptografar(senha) {
+export default function Criptografar(phrase) {
     const DADOS_CRIPTOGRAFAR = {
         algorithm: "aes256",
         secret: "ilegibilidade",
@@ -11,7 +11,7 @@ export default function Criptografar(senha) {
         DADOS_CRIPTOGRAFAR.algorithm,
         DADOS_CRIPTOGRAFAR.secret
     );
-    cipher.update(senha);
+    cipher.update(phrase);
 
     return cipher.final(DADOS_CRIPTOGRAFAR.type);
 }

@@ -9,10 +9,14 @@ export const AppProvider = ({ children }) => {
 
     /* Autenticação */
     const [auth, setAuth] = useState();
-    const authCookie = userCookies.AUTH;
+
+    // Cookies do usuário
+    const _adkfCookie = userCookies._adkf;
+    const _audkfCookie = userCookies._audkf;
+    const _apdkfCookie = userCookies._apdkf;
 
     useEffect(() => {
-        if (authCookie) {
+        if (_adkfCookie && _audkfCookie && _apdkfCookie) {
             setAuth(true);
         } else {
             setAuth(false);
@@ -57,7 +61,7 @@ export const AppProvider = ({ children }) => {
         >
             <div
                 className={
-                    nightMode && authCookie
+                    nightMode && _adkfCookie
                         ? "application night-mode "
                         : "application"
                 }

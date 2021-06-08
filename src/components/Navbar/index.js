@@ -17,6 +17,7 @@ import { CgMenuRightAlt } from "react-icons/cg";
 import style from "./Navbar.module.scss";
 import { useRouter } from "next/router";
 import { destroyCookie } from "nookies";
+import NavbarName from "../NavbarName";
 
 export default function Navbar() {
     // Recebe o estado do toggleSidebar do AppProvider
@@ -86,7 +87,9 @@ export default function Navbar() {
 
     // Faz o logout
     const handleLogout = () => {
-        destroyCookie(null, "AUTH");
+        destroyCookie(null, "_adkf");
+        destroyCookie(null, "_audkf");
+        destroyCookie(null, "_apdkf");
 
         router.push("/");
     };
@@ -231,16 +234,7 @@ export default function Navbar() {
                                     aria-label="Meu perfil e configurações"
                                     onClick={toggleDropProfile}
                                 >
-                                    <img
-                                        src="/images/profile-img.jpg"
-                                        alt="Imagem de Perfil"
-                                        className={
-                                            style.profile__img + ` circle-img`
-                                        }
-                                    />
-                                    <span className={style.navbar__nome_perfil}>
-                                        Diego Koscky
-                                    </span>
+                                    <NavbarName />
                                 </span>
                                 <div
                                     ref={profileNode}
