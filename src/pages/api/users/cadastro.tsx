@@ -86,6 +86,8 @@ export default async function handler(
             default:
                 res.setHeader("Allow", ["POST"]);
                 res.status(405).end("Forbidden");
+
+                break;
         }
     } catch (err) {
         res.status(500).json({ statusCode: 500, message: err.message });

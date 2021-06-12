@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import connectToDatabase from "../../../utils/mongodb";
-import criptografar from "../../../utils/crypt";
+import descriptografar from "../../../utils/decrypt";
 
 export default async function handler(
     req: NextApiRequest,
@@ -9,40 +9,34 @@ export default async function handler(
     try {
         // Recebe o conteúdo da requisição
         const { method } = req;
-        const { email } = req.body;
-        const { senha } = req.body;
+        const { _audkfCookie } = req.body;
+        const { _apdkfCookie } = req.body;
+
+        const _audkfCookieDecrypt = descriptografar(_audkfCookie);
 
         switch (method) {
             case "POST":
-                // Criptografa a senha
-                const hashPassword = criptografar(senha);
+                const query = {
+                    email: _audkfCookieDecrypt,
+                    senha: _apdkfCookie,
+                };
 
-                // Monta os parâmetros da query
-                const query = { email: email, senha: hashPassword };
-
-                // Conecta no banco de dados
                 const db = await connectToDatabase();
+                const data = await db.collection("users").find(query).toArray();
 
-                // Realiza a query no banco
-                const data = await db.collection("users").findOne(query);
-
-                // Retornos
                 if (data) {
-                    res.status(200).json({
-                        status: true,
-                        message: "Usuário encontrado.",
-                    });
+                    res.status(200).json(data);
                 } else {
                     res.status(200).json({
                         status: false,
                         titulo: "Erro",
-                        message: "Email ou senha incorretos.",
+                        message:
+                            "Não foram encontrados dados com esses parâmetros.",
                         label: "danger",
                     });
                 }
 
                 break;
-
             default:
                 res.setHeader("Allow", ["POST"]);
                 res.status(405).end("Forbidden");
