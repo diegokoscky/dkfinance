@@ -10,7 +10,6 @@ export default async function handler(
         // Recebe o conteúdo da requisição
         const { method } = req;
         const { _audkfCookie } = req.body;
-        const { _apdkfCookie } = req.body;
 
         const _audkfCookieDecrypt = descriptografar(_audkfCookie);
 
@@ -18,7 +17,6 @@ export default async function handler(
             case "POST":
                 const query = {
                     email: _audkfCookieDecrypt,
-                    senha: _apdkfCookie,
                 };
 
                 const db = await connectToDatabase();

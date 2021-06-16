@@ -4,11 +4,11 @@ import { parseCookies } from "nookies";
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
+    /* AUTENTICAÇÃO */
+    const [auth, setAuth] = useState();
+
     // Busca os cookies do usuário
     const userCookies = parseCookies();
-
-    /* Autenticação */
-    const [auth, setAuth] = useState();
 
     // Cookies do usuário
     const _adkfCookie = userCookies._adkf;
@@ -23,7 +23,7 @@ export const AppProvider = ({ children }) => {
         }
     }, []);
 
-    /* Night mode */
+    /* NIGHT MODE */
     const [nightMode, setNightMode] = useState();
 
     const themeCookie = userCookies.NIGHTM;
@@ -36,16 +36,16 @@ export const AppProvider = ({ children }) => {
         }
     }, []);
 
-    /* Notification */
+    /* NOTIFICATION */
     const [notification, setNotification] = useState();
 
-    /* Modal */
+    /* MODAL */
     const [modal, setModal] = useState();
 
-    /* Sidebar */
+    /* SIDEBAR */
     const [sidebarToggle, setSidebarToggle] = useState(false);
 
-    /* Loading Button */
+    /* LOADING BUTTON */
     const [loading, setLoading] = useState(false);
 
     return (

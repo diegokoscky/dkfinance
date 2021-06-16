@@ -12,7 +12,14 @@ export default function Teste({ org }) {
 }
 
 export const getStaticProps = async () => {
-    const response = await fetch("https://api.github.com/orgs/rocketseat");
+    // Envia a requisição para o endpoint da API
+    const response = await fetch("https://api.github.com/orgs/rocketseat", {
+        //method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+
     const data = await response.json();
 
     return {

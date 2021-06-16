@@ -1,6 +1,4 @@
 import style from "./NavbarName.module.scss";
-import { setCookie } from "nookies";
-import criptografar from "../../utils/crypt";
 
 export default function NavbarName() {
     return (
